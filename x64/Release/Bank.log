@@ -1,0 +1,9 @@
+﻿  Conta.cpp
+  Funcionario.cpp
+  main.cpp
+  Pessoa.cpp
+C:\dev\Bank\Bank\main.cpp(35,28): error C2661: 'Funcionario::Funcionario': nenhuma função sobrecarregada recebe 2 argumentos
+  C:\dev\Bank\Bank\main.cpp(35,28):
+  ao tentar corresponder a lista de argumentos '(Cpf, const char [7])'
+  
+  Titular.cpp
