@@ -3,8 +3,8 @@
 
 int Conta::numeroDeContas = 0;
 
-Conta::Conta(std::string numero, Titular titular) :
-    numero(numero),
+Conta::Conta(std::string numero, Titular titular):
+    numero(numero), 
     titular(titular),
     saldo(0)
 {
@@ -19,7 +19,7 @@ Conta::~Conta()
 void Conta::sacar(float valorASacar)
 {
     if (valorASacar < 0) {
-        std::cout << "Não pode sacar valor negativo" << std::endl;
+        std::cout << "NÃ£o pode sacar valor negativo" << std::endl;
         return;
     }
 
@@ -34,7 +34,7 @@ void Conta::sacar(float valorASacar)
 void Conta::depositar(float valorADepositar)
 {
     if (valorADepositar < 0) {
-        std::cout << "Não pode sacar valor negativo" << std::endl;
+        std::cout << "NÃ£o pode sacar valor negativo" << std::endl;
         return;
     }
 

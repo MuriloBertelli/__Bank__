@@ -4,15 +4,12 @@
 
 class Pessoa
 {
-private:
-    Cpf cpf;
-    std::string nome;
-
+protected:
+	Cpf cpf;
+	std::string nome;
 public:
-    Pessoa(Cpf cpf, std::string nome);
-
+	Pessoa(Cpf cpf, std::string nome);
 private:
-    void verificaTamanhoDoNome();
+	void verificaTamanhoDoNome();
 };
-
 

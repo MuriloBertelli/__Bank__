@@ -1,7 +1,7 @@
 #include "Cpf.hpp"
 #include <iostream>
 
-Cpf::Cpf(std::string numero) : numero(numero)
+Cpf::Cpf(std::string numero): numero(numero)
 {
     std::cout << "Cpf criado" << std::endl;
 }
