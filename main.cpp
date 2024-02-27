@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "Conta.hpp"
+#include "ContaCorrente.hpp"
 #include "ContaPoupanca.hpp"
 #include "Titular.hpp"
 #include "Cpf.hpp"
