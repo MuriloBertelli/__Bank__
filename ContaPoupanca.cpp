@@ -5,14 +5,9 @@ ContaPoupanca::ContaPoupanca(std::string numero, Titular titular): Conta(numero,
 {
 }
 
-ContaPoupanca::~ContaPoupanca()
-{
-    std::cout << "Destrutor da conta poupanca" << std::endl;
-}
-
 float ContaPoupanca::taxaDeSaque() const
 {
+    std::cout << "Chamando método sacar da conta poupança" << std::endl;
+
     return 0.03;
 }
-
-

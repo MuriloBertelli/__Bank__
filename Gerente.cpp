@@ -1,10 +1,11 @@
 #include "Gerente.hpp"
 
-Gerente::Gerente(Cpf cpf, std::string nome, float salario) : Funcionario (cpf , nome, salario)
+Gerente::Gerente(Cpf cpf, std::string nome, float salario, DiaDaSemana diaDoPagamento, std::string senha)
+    : Funcionario(cpf, nome, salario, diaDoPagamento), Autenticavel(senha)
 {
 }
 
-float Gerente::bonificacao() const 
+float Gerente::bonificacao() const
 {
-	return recuperaSalario() * 0.5;
+    return recuperaSalario() * 0.5;
 }

@@ -4,9 +4,9 @@
 class Autenticavel
 {
 private:
-	std::string senha;
+    std::string senha;
 public:
-	Autenticavel(std::string senha);
-	bool autentica(std::string senha) const;
+    Autenticavel(std::string senha);
+    bool autentica(std::string senha) const;
 };
 
