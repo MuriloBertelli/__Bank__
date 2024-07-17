@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <any>
 #include "DiaDaSemana.hpp"
 #include "Gerente.hpp"
 #include "Conta.hpp"
@@ -18,7 +19,10 @@ void ExibeSaldo(const Conta& conta)
 
 void RealizaSaque(Conta& conta)
 {
-    conta.sacar(200);
+    std::variant<Conta::ResultadoSaque, float> resultado = conta.sacar(200);
+    if (auto saldo = std::get_if<float>(&resultado)) {
+        cout << "Novo saldo da conta:" << *saldo << endl;
+    }
 }
 
 void FazLogin(Autenticavel& alguem, string senha)
@@ -30,26 +34,39 @@ void FazLogin(Autenticavel& alguem, string senha)
     }
 }
 
+ostream& operator<<(ostream& cout, const Conta& conta)
+{
+    Pessoa titular = conta.titular;
+    cout << "O saldo da conta é (operador): " << conta.recuperaSaldo() << endl;
+    cout << "O titular da conta é: " << titular.recuperaNome() << endl;
+
+    return cout;
+}
+
+template<typename T>
+T Menor(T a, T b)
+{
+    return a < b ? a : b;
+}
+
 int main()
 {
     Titular titular(Cpf("123.456.789-10"), "Vinicius", "umasenha");
 
     ContaPoupanca umaConta("123456", titular);
     umaConta.depositar(500);
-    RealizaSaque(umaConta);
-
-    ExibeSaldo(umaConta);
 
     Titular outro(Cpf("098.765.432-10"), "Vinicius Dias", "outrasenha");
     ContaCorrente umaOutraConta("654321", titular);
-    umaOutraConta.depositar(300);
-    
+    (Conta&) umaOutraConta += 300;
+
     ContaCorrente outraContaCorrente("546312", titular);
     
-    umaOutraConta.transferePara(umaConta, 250);
+    outraContaCorrente += umaOutraConta;
 
-    ExibeSaldo(umaOutraConta);
-    ExibeSaldo(outraContaCorrente);
+    cout << Menor<Conta&>(umaConta, umaOutraConta);
+    cout << Menor(1, 2) << endl;
+    cout << Menor(1.5, 2.4) << endl;
 
     cout << "Número de contas: " << Conta::recuperaNumeroDeContas() << endl;
 
